@@ -1,10 +1,13 @@
-
+//Pages
+import Home from './pages/Home';
+//styled components
+import {StyledContainer} from './components/Styles';
 
 function App() {
   return (
-    <div className="App">
-     <p>Hello World!</p>
-    </div>
+      <StyledContainer>
+        <Home/>
+      </StyledContainer>
   );
 }
 
