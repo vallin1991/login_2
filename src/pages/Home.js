@@ -1,8 +1,8 @@
-import { StyledTitle, StyledSubTitle, Avatar } from './../components/Styles';
+import { StyledTitle, StyledSubTitle, Avatar, StyledButton, ButtonGroup } from './../components/Styles';
 import React from 'react';
 
 //Logo
-import Logo from './../assets/Logo.jpg'
+import logo from './../assets/logo.jpg'
 const Home = () => {
     return (
         <div>
@@ -18,14 +18,16 @@ const Home = () => {
                 justifyContent: "flex-start",
             }}
             >
-                <Avatar image={Logo}/>
+                <Avatar image={logo}/>
             </div>
             <StyledTitle size={65}>
-                Welcome to TTPC
+                Welcome to Buster Construction
             </StyledTitle>
             <StyledSubTitle size={27}>
-                Feel free to explore our page
+                When you need help don't think it call Buster
             </StyledSubTitle>
+            <ButtonGroup><StyledButton to="/login">Login</StyledButton>
+            <StyledButton to="/signup">Signup</StyledButton></ButtonGroup>
         </div>
     );
 };
