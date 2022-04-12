@@ -9,6 +9,10 @@ import logo from './../assets/logo.jpg';
 //formik
 import {Formik, Form} from 'formik';
 import {TextInput} from './../components/FormLib';
+import * as Yup from 'yup';
+
+//Icons
+import {FiMail, FiLock } from 'react-icons/fi';
 
 
 const Login = () => {
@@ -19,7 +23,21 @@ const Login = () => {
                 <StyledTitle color={colors.theme} size={30}>
                 Member Login
                 </StyledTitle>
-                <Formik>
+                <Formik
+                    initialValues={{
+                        email: "",
+                        password: "",
+                    }}
+                    validationSchema
+                    onSubmit={(values, {setSubmitting}) => {
+                        console.log(values);
+                    }}
+                    validationSchema={Yup.object({
+                        email: Yup.string()
+                        .email("Invalid email address")
+                        .required("Required"),
+                    })}
+                >
                     {() => (
                         <Form>
                             <TextInput
@@ -27,6 +45,7 @@ const Login = () => {
                                 type="text"
                                 label="Email Address"
                                 placeholder="olga1@example.com"
+                                icon={<FiMail/>}
                             />
 
                             <TextInput
@@ -34,6 +53,7 @@ const Login = () => {
                                 type="password"
                                 label="Password"
                                 placeholder="********"
+                                icon={<FiLock/>}
                             
                             />
                             <ButtonGroup>
